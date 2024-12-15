@@ -48,7 +48,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-[🌐 Live Demo](https://improc-app.streamlit.app/)
+## [🌐 Live Demo](https://improc-app.streamlit.app/)
 
 ## 📝 License
 This project is licensed under the MIT License - see the LICENSE file for details. 
