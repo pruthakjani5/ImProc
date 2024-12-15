@@ -175,7 +175,35 @@ def local_css():
         --text-color: #262730;
         --card-background: #FFFFFF;
     }
+    <style>
+    /* Sidebar Styling */
+    [data-testid="stSidebar"] {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
 
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        [data-testid="stSidebar"] {
+            background-color: rgba(255, 255, 255, 1) !important;
+            width: 100% !important;
+        }
+    }
+    <style>
+    /* Sidebar - Light/Dark Mode Compatible */
+    [data-testid="stSidebar"] {
+        background-color: var(--secondary-background-color) !important;
+        border-right: 1px solid var(--secondary-background-color);
+    }
+
+    /* Image Card Styling */
+    .image-container {
+        background-color: var(--secondary-background-color);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
     /* Enhanced Card Container */
     .card {
         background-color: var(--card-background);
@@ -230,13 +258,14 @@ def local_css():
     }
     </style>
     """, unsafe_allow_html=True)
+    
 
 def add_sidebar_info():
     # Brief intro and social links at top
     st.sidebar.markdown("""
     # 🎨 Image Enhancement Studio
     
-    This Image Processing application was developed by **Pruthak Jani**  using knowledge gained by the **Image Processing** course at L.D. College of Engineering, Ahmedabad, 2024.
+    This Image Processing application was developed by **Pruthak Jani**  using knowledge gained by the **Image Processing** course (3155204)  at L.D. College of Engineering, Ahmedabad, 2024.
     
     [![GitHub](https://img.shields.io/badge/GitHub-Profile-blue?style=flat&logo=github)](https://github.com/pruthakjani5)
     [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/pruthak-jani/)
@@ -275,7 +304,7 @@ def add_sidebar_info():
     # Add a disclaimer at the bottom    
     st.sidebar.markdown("""
     ---
-    📚 **Disclaimer**: This app is for educational purposes only
+    📚 **Disclaimer**: This app is for educational purposes only. The developer has no liability for any misuse or damage caused by the application.
         .
     ### 👨‍💻 Developer
     **Pruthak Jani**  
