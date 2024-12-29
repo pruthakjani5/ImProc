@@ -4,8 +4,8 @@ import streamlit as st
 from PIL import Image
 import io
 from streamlit_image_comparison import image_comparison
-import warnings 
-warnings.filterwarnings("ignore")
+# import warnings 
+# warnings.filterwarnings("ignore")
 
 def negative_transformation(image):
     return cv2.bitwise_not(image)
@@ -393,7 +393,7 @@ def process_image(original_image, grayscale_image, enhancement_option, enhanceme
         elif enhancement_option == "Histogram Equalization":
             enhanced_image = histogram_equalization(original_image)
             enhanced_grayscale = histogram_equalization(grayscale_image)
-        # Frequency Filtering Techniques
+    # Frequency Filtering Techniques
     elif enhancement_category == "Frequency":
         if enhancement_option == "Low Pass Filter":
             d = st.sidebar.slider("Filter Radius", 1, 50, 10)
@@ -475,7 +475,7 @@ def main():
             original_image = image
             grayscale_image = image
 
-        # Enhanced Enhancement Category Selection
+        # Enhancement Category Selection
         st.sidebar.markdown("### 📊 Processing Domain")
         enhancement_category = st.sidebar.radio(
             "Choose Your Transformation",
@@ -483,7 +483,7 @@ def main():
             help="Select the type of image enhancement technique"
         )
 
-        # Updated Enhancement Options
+        # Enhancement Options
         enhancement_options = {
             "Pixel-Level": [
                 "None", "Negative Transformation", "Log Transformation", 
@@ -509,7 +509,6 @@ def main():
             help=f"Select a specific {enhancement_category.lower()} enhancement technique"
         )
 
-        # Processing remains the same as in your original script
         enhanced_image, enhanced_grayscale = process_image(
             original_image, 
             grayscale_image, 
@@ -584,32 +583,32 @@ def main():
         
         st.markdown('</div>', unsafe_allow_html=True)
 
-# Add theme toggle in sidebar
-def add_theme_toggle():
-    theme = st.sidebar.selectbox(
-        "🎨 Choose Theme",
-        ["Light", "Dark"],
-        help="Switch between light and dark theme"
-    )
+# # Add theme toggle in sidebar
+# def add_theme_toggle():
+#     theme = st.sidebar.selectbox(
+#         "🎨 Choose Theme",
+#         ["Light", "Dark"],
+#         help="Switch between light and dark theme"
+#     )
     
-    if theme == "Dark":
-        st.markdown("""
-            <script>
-                document.documentElement.setAttribute('data-theme', 'dark');
-            </script>
-        """, unsafe_allow_html=True)
-    else:
-        st.markdown("""
-            <script>
-                document.documentElement.setAttribute('data-theme', 'light');
-            </script>
-        """, unsafe_allow_html=True)
+#     if theme == "Dark":
+#         st.markdown("""
+#             <script>
+#                 document.documentElement.setAttribute('data-theme', 'dark');
+#             </script>
+#         """, unsafe_allow_html=True)
+#     else:
+#         st.markdown("""
+#             <script>
+#                 document.documentElement.setAttribute('data-theme', 'light');
+#             </script>
+#         """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     st.set_page_config(
         page_title="ImProc: Advanced Image Processing",
-        page_icon="🎨",
+        page_icon="🖼️",
         layout="wide"
     )
-    add_theme_toggle()
+    # add_theme_toggle()
     main()
